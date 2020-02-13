@@ -1,0 +1,8 @@
+C:\Users\Thoma\source\repos\baxochat\baxochat\Shared\bin\Debug\netstandard2.1\baxochat.Shared.deps.json
+C:\Users\Thoma\source\repos\baxochat\baxochat\Shared\bin\Debug\netstandard2.1\baxochat.Shared.dll
+C:\Users\Thoma\source\repos\baxochat\baxochat\Shared\bin\Debug\netstandard2.1\baxochat.Shared.pdb
+C:\Users\Thoma\source\repos\baxochat\baxochat\Shared\obj\Debug\netstandard2.1\baxochat.Shared.csprojAssemblyReference.cache
+C:\Users\Thoma\source\repos\baxochat\baxochat\Shared\obj\Debug\netstandard2.1\baxochat.Shared.AssemblyInfoInputs.cache
+C:\Users\Thoma\source\repos\baxochat\baxochat\Shared\obj\Debug\netstandard2.1\baxochat.Shared.AssemblyInfo.cs
+C:\Users\Thoma\source\repos\baxochat\baxochat\Shared\obj\Debug\netstandard2.1\baxochat.Shared.dll
+C:\Users\Thoma\source\repos\baxochat\baxochat\Shared\obj\Debug\netstandard2.1\baxochat.Shared.pdb
