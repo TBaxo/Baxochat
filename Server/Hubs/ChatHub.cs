@@ -12,7 +12,7 @@ namespace baxochat.Server.Hubs
 
         public async Task SendMessage(string userName, string message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", userName, message);
+            await Clients.All.SendAsync(MessageTypes.RECEIVED, userName, message);
         }
 
         public async Task Connect(string userName)
@@ -21,7 +21,7 @@ namespace baxochat.Server.Hubs
             if (!userDictionary.ContainsKey(currentId))
             {
                 userDictionary.Add(currentId, userName);
-                await Clients.AllExcept(currentId).SendAsync(MessageTypes.RECEIVED, "Server", $"{userName} has joined the chat");
+                await Clients.All.SendAsync(MessageTypes.RECEIVED, "Server", $"{userName} has joined the chat");
             }
 
         }
