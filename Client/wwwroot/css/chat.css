@@ -1,7 +1,11 @@
-.message_username{
+.messageBox{
+
+}
+
+.message__username{
     display: inline-block;
 }
 
-.message_message{
+.message__content{
     display: inline-block;
 }
