@@ -37,7 +37,7 @@ steps:
   inputs:
     azureSubscription: 'baxochat_service'
     appName: 'baxochat'
-    package: $(System.ArtifactsDirectory)/**/*.zip    
+    package: $(build.artifactStagingDirectory)\WebApp.zip   
 
 
 
