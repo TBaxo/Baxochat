@@ -23,7 +23,7 @@ jobs:
       uses: azure/webapps-deploy@v1
       with: 
         app-name: baxochat 
-        publish-profile: $publishProfile 
+        publish-profile: $ {{ publishProfile }} 
         package: './dotnetcorewebapp' 
 
 
