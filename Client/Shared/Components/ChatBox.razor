@@ -1,0 +1,10 @@
+<div class="messagebox">
+    @foreach(Message message in Messages){
+        <ChatBoxMessage UserName="@message.UserName" Content="@message.Content"/>
+    }
+</div>
+
+@code{
+    [Parameter]
+    public IList<Message> Messages { get; set; }
+}
