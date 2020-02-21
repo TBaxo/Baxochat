@@ -1,7 +1,88 @@
-﻿@page "/"
+﻿@using baxochat.Shared.ChatClient
+@using baxochat.Shared.ChatClient.Events
+@page "/"
+@inject NavigationManager navigationManager
 
-<h1>Hello, world!</h1>
+@if (!_started)
+{
+    <div class="login">
+        <div class="login__header">
+            BaxoChat
+        </div>
+        <div>
+            <input type="text" class="login__username" maxlength="20" @bind="@_userName"/>
+            <button class="login__submit" @onclick="@Login">Login</button>
+        </div>
+    </div>
+}
+else
+{
+    <div class="header">
+        <div class="header__text">
+            BaxoChat
+        </div>
+    </div>
+    <div>
+        <ChatBox Messages="@_messages" />
+    </div>
 
-Welcome to your new app.
+    <div>
+        <input type="text" @bind="@_currentMessage">
+        <button @onclick="@SendMessage">Send</button>
+    </div>
+}
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+
+
+@code
+{
+    Client _client;
+
+    string _userName;
+
+    bool _started = false;
+
+    IList<Message> _messages = new List<Message>();
+
+    string _currentMessage = "";
+
+
+    async Task Login()
+    {
+        if (string.IsNullOrEmpty(_userName))
+        {
+            return;
+        }
+
+        _client = new Client(_userName, navigationManager);
+
+        _client.MessageReceived += MessageReceived;
+
+        await _client.StartAsync();
+
+        _started = true;
+    }
+
+    async Task SendMessage()
+    {
+        if (String.IsNullOrWhiteSpace(_currentMessage))
+        {
+            return;
+        }
+
+        await _client.SendMessage(_currentMessage);
+
+        _currentMessage = "";
+    }
+
+    void MessageReceived(object sender, MessageReceivedEventArgs e)
+    {
+        Message message = new Message(e.UserName, e.Message);
+
+        _messages.Add(message);
+
+        StateHasChanged();
+    }
+}
