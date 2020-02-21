@@ -15,17 +15,14 @@ jobs:
         dotnet-version: 3.1.101
     - name: Build with dotnet
       run: dotnet build --configuration Release
-      
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
 
     - name: dotnet publish
       run: |
         dotnet publish -c Release -o dotnetcorewebapp 
         
     - name: Azure Login
-      uses: Azure/login@v1
+      uses: azure/login@v1
       with: 
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
