@@ -22,9 +22,9 @@ jobs:
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v1
       with: 
-        credentials: ${{ secrets.credentials }}
+        credentials: ${{ secrets.AZURE_CREDENTIALS }}
         app-name: baxochat 
-        publish-profile: ${{ secrets.publishProfile }} 
+        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }} 
         package: './dotnetcorewebapp' 
 
 
