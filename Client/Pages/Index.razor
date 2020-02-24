@@ -5,30 +5,39 @@
 
 @if (!_started)
 {
-    <div class="login">
-        <div class="login__header">
-            BaxoChat
-        </div>
-        <div>
-            <input type="text" class="login__username" maxlength="20" @bind="@_userName"/>
-            <button class="login__submit" @onclick="@Login">Login</button>
+    <div class="main">
+        <div class="login">
+            <div class="login__header">
+                BaxoChat
+            </div>
+            <div class="login__controls">
+                <input type="text" class="login__username" maxlength="20" @bind="@_userName"/>
+                <button class="login__submit" @onclick="@Login">Login</button>
+            </div>
         </div>
     </div>
 }
 else
 {
-    <div class="header">
-        <div class="header__text">
-            BaxoChat
+    <div class="workspace">
+        <div class="workspace__header">
+            <div class="workspace__header-text">
+                BaxoChat
+            </div>
         </div>
-    </div>
-    <div>
-        <ChatBox Messages="@_messages" />
-    </div>
+    
+        <div class="workspace__sidebar">
 
-    <div>
-        <input type="text" @bind="@_currentMessage">
-        <button @onclick="@SendMessage">Send</button>
+        </div>
+
+        <div class="workspace__chat">
+            <ChatBox Messages="@_messages" />
+
+            <div class="chat-control">
+                <input type="text" class="chat-control__text" @bind="@_currentMessage" @onkeyup="@OnEnter"/>
+                <button class="chat-control__submit"@onclick="@SendMessage">Send</button>
+            </div>
+        </div>
     </div>
 }
 
@@ -84,5 +93,15 @@ else
         _messages.Add(message);
 
         StateHasChanged();
+    }
+
+    async Task OnEnter(KeyboardEventArgs e)
+    {
+        Console.WriteLine(e.Key);
+        if(e.Key == "Enter")
+        {
+            await SendMessage();
+        }
+
     }
 }

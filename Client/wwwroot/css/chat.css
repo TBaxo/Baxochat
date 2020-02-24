@@ -1,20 +1,56 @@
-.header {
+.workspace {
     width: 100%;
-    height: 120px;
-    border-style:solid;
-    border-width:1px;
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 100px auto;
+    grid-template-areas: "workspace__header workspace__header" "workspace__sidebar workspace__chat";
 }
 
-.header__text {
+
+.workspace__header {
+    width: 100%;
+    border-style: solid;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+    grid-area: workspace__header;
+}
+
+.workspace__header-text {
     text-align: center;
     font-family: Consolas;
     font-size: 60px;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
-.messagebox{
+.workspace__sidebar {
+    grid-area: workspace__sidebar;
+}
 
+.workspace__chat {
+    grid-area: workspace__chat;
+}
+
+
+.messagebox{
+    text-align: center;
+}
+
+
+.message{
+  position: relative;
+  text-align: left;
+  font-family: arial;
+  font-size: 1.0em;
+  background: #a53d38;
+  color: #fff;
+  border-radius: 2px;
+  padding: 8px;
+  max-width: 400px;
+  margin-top: 5px;
+  margin-bottom: 12px;
 }
 
 .message__username{
@@ -23,4 +59,25 @@
 
 .message__content{
     display: inline-block;
+    word-break: break-word;
+}
+
+.message--server{
+
+}
+
+.message--user{
+}
+
+.chat-control{
+}
+
+
+.chat-control__text {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.chat-control__submit{
+
 }
