@@ -12,10 +12,14 @@
 
 .login__header {
     font-family: Consolas;
-    margin: 0 auto;
     font-size: 60px;
     margin-top: 10px;
     margin-bottom: 30px;
+    text-align: center;
+}
+
+.login__controls {
+    text-align: center;
 }
 
 .login__username {
